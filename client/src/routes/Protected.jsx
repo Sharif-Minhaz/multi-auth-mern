@@ -3,10 +3,12 @@ import PropTypes from "prop-types";
 import { useAuth } from "./../contexts/AuthContext";
 
 export default function Protected({ children }) {
-	const { isAuthenticated } = useAuth();
+	const { isAuthenticated, loading } = useAuth();
 
 	if (isAuthenticated()) {
 		return children;
+	} else if (loading) {
+		return <p>Loading...</p>;
 	}
 
 	return <Navigate to="/" replace />;

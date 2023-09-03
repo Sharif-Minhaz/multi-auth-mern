@@ -11,11 +11,13 @@ export function useAuth() {
 
 export function AuthProvider({ children }) {
 	const [user, setUser] = useState({});
+	const [loading, setLoading] = useState(true);
 
 	useEffect(() => {
 		async function fetchUserInfo() {
 			const userInfo = await loggedInUserInfo();
 			setUser(userInfo);
+			setLoading(false);
 		}
 
 		fetchUserInfo();
@@ -37,7 +39,9 @@ export function AuthProvider({ children }) {
 	};
 
 	return (
-		<AuthContext.Provider value={{ user, addUserInfo, clearUserInfo, isAuthenticated }}>
+		<AuthContext.Provider
+			value={{ user, loading, addUserInfo, clearUserInfo, isAuthenticated }}
+		>
 			{children}
 		</AuthContext.Provider>
 	);

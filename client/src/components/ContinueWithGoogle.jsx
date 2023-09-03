@@ -25,8 +25,6 @@ export default function ContinueWithGoogle({ text = "continue_with" }) {
 			if (runLogin?.success) {
 				addUserInfo(runLogin?.user);
 				return navigate("/dashboard", { replace: true });
-			} else {
-				alert("Login failed, try again!");
 			}
 		} catch (error) {
 			alert(error.message);

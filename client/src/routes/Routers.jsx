@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
+import Profile from "../pages/Profile";
 import NotFound from "../pages/NotFound";
 import Protected from "./Protected";
 import NotLoggedIn from "./NotLoggedIn";
@@ -16,6 +17,14 @@ export default function Routers() {
 				element={
 					<Protected>
 						<Dashboard />
+					</Protected>
+				}
+			/>
+			<Route
+				path="/profile"
+				element={
+					<Protected>
+						<Profile />
 					</Protected>
 				}
 			/>
