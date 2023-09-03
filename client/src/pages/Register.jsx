@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ContinueWithGoogle from "../components/ContinueWithGoogle";
+import Divider from "./../components/Divider";
 import { register } from "../apis/services/authServices";
 
 const initialFormData = {
@@ -98,6 +100,8 @@ export default function Register() {
 					</Link>
 				</p>
 			</form>
+			<Divider className="mt-3 mb-4" text="or" />
+			<ContinueWithGoogle />
 		</div>
 	);
 }

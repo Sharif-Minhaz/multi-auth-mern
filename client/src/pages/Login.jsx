@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../apis/services/authServices";
 import { useAuth } from "../contexts/AuthContext";
+import Divider from "../components/Divider";
+import ContinueWithGoogle from "../components/ContinueWithGoogle";
 
 const initialFormData = {
 	email: "",
@@ -24,7 +26,6 @@ export default function Login() {
 			const runLogin = await login(formData);
 			if (runLogin) {
 				addUserInfo(runLogin?.user);
-				setFormData(initialFormData);
 				return navigate("/dashboard", { replace: true });
 			}
 			alert("Login failed, try again!");
@@ -82,6 +83,8 @@ export default function Login() {
 					</Link>
 				</p>
 			</form>
+			<Divider text="or" />
+			<ContinueWithGoogle text="login_with" />
 		</div>
 	);
 }

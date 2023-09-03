@@ -37,6 +37,12 @@ const userSchema = new Schema(
 			default:
 				"https://res.cloudinary.com/hostingimagesservice/image/upload/v1680632612/mediAid/default-profile-pic_lktd2q.webp",
 		},
+
+		authType: {
+			type: String,
+			enum: ["google", "fb", "gh", "form"],
+			default: "form",
+		},
 	},
 	{ timestamps: true }
 );

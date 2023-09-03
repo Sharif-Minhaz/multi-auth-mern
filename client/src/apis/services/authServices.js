@@ -12,6 +12,20 @@ export const login = async (credentials) => {
 	}
 };
 
+export const continueWithGoogle = async (credentials) => {
+	try {
+		const response = await api.post("/auth/continue-google", credentials, {
+			withCredentials: true,
+		});
+
+		const isSuccessful = response.data?.success;
+
+		return isSuccessful ? response.data : false;
+	} catch (error) {
+		throw new Error(error.message);
+	}
+};
+
 export const loggedInUserInfo = async () => {
 	try {
 		const response = await api.get("/auth/login-info", { withCredentials: true });

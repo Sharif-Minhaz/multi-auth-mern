@@ -28,12 +28,12 @@ export function AuthProvider({ children }) {
 
 	const clearUserInfo = () => {
 		// Perform logout logic and clear user data
-		setUser(null);
+		setUser({});
 	};
 
 	const isAuthenticated = () => {
 		// Check if the user is authenticated (e.g., check if user data exists)
-		return !!user;
+		return Object.keys(user).length === 0 ? false : true;
 	};
 
 	return (
